@@ -9,6 +9,14 @@ type PasswordValidatorController struct {
 	passwordValidatorService services.PasswordValidatorService
 }
 
+func NewPasswordValidatorController(
+	passwordValidatorService services.PasswordValidatorService,
+) *PasswordValidatorController {
+	return &PasswordValidatorController{
+		passwordValidatorService: passwordValidatorService,
+	}
+}
+
 func (pvc *PasswordValidatorController) ValidatePassword(w http.ResponseWriter, r *http.Request) {
 
 }

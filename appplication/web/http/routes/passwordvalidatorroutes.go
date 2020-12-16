@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func Routes(passwordValidatorController controllers.PasswordValidatorController) []*webgo.Route {
+func Routes(passwordValidatorController *controllers.PasswordValidatorController) []*webgo.Route {
 	return []*webgo.Route{
 		{
 			Name: "Validate password",
