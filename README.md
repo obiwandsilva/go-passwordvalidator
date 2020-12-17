@@ -10,15 +10,28 @@ It consist basically on some very well defined layers:
 - **Domain**
 -- Holds everything related to business logic, such entities and services
 - **Resources**
--- Consists on everything related to communication with external resources, such APIs, Repositories, etc. This service does not need this layer, so it's not defined.
+-- Consists on everything related to communication with external resources, such APIs, Repositories, etc. This service \
+does not need this layer, so it's not defined.
 
-In a more robust scenario, all layers should make heavy use of interfaces, but given the little scope of this service, only the business layer (domain/services) is using an interface in order to be abstracted and consequently decoupled.
+In a more robust scenario, all layers should make heavy use of interfaces, but given the little scope of this service, \
+only the business layer (domain/services) is using an interface in order to be abstracted and consequently decoupled.
 
-So basically, we have the application being started and under it also is an http server that serves on the port `7000` and the route `/validate`, with requests being handled by the controller, which calls the service interface in order have all the business logics applied to the request data that finally retrieves the desired information back to the controller and so on.
+So basically, we have the application being started and under it also is an http server that serves on the port `7000` \
+and the route `/validate`, with requests being handled by the controller, which calls the service interface in order \
+have all the business logics applied to the request data that finally retrieves the desired information back to the \
+controller and so on.
 
 - Application -> HTTP Server -> Controller -> Service
 
-The server also in configured to handle shutdown signals in a graceful away, so all the ongoing connections can have time to be finished and give response to the client before the server being shutdown.
+The server also is configured to handle shutdown signals in a graceful away, so all the ongoing connections can have \
+time to be finished and give response to the client before the server being shutdown.
+
+## IsValid
+
+The main function responsible for the password validation uses other private functions that represent each of the \
+validation steps: the sizeand the missing reqiired chars. It keeps a `map` of each Rule used to define some criteria,
+so, this way, only one iteration can be done on the entire string. If the size does not match or any invalid character \
+is found, the iteration does no happen or stops immediatelly.
 
 ## Usage
 
