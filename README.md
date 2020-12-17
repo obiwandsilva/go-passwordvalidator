@@ -5,12 +5,9 @@ The service was designed on a layer oriented architecture with influences on the
 
 It consist basically on some very well defined layers:
 
-- **Application**
--- Holds the application configuration (e.g. env vars) and its bootstrap (servers, queue consumers, etc)
-- **Domain**
--- Holds everything related to business logic, such entities and services
-- **Resources**
--- Consists on everything related to communication with external resources, such APIs, Repositories, etc. This service \
+- **Application** holds the application configuration (e.g. env vars) and its bootstrap (servers, queue consumers, etc).
+- **Domain** holds everything related to business logic, such entities and services.
+- **Resources** consists on everything related to communication with external resources, such APIs, Repositories, etc. This service \
 does not need this layer, so it's not defined.
 
 In a more robust scenario, all layers should make heavy use of interfaces, but given the little scope of this service, \
@@ -29,9 +26,9 @@ time to be finished and give response to the client before the server being shut
 ## IsValid
 
 The main function responsible for the password validation uses other private functions that represent each of the \
-validation steps: the sizeand the missing reqiired chars. It keeps a `map` of each Rule used to define some criteria,
-so, this way, only one iteration can be done on the entire string. If the size does not match or any invalid character \
-is found, the iteration does no happen or stops immediatelly.
+validation steps: the size and the missing required characters. It keeps a `map` of each Rule used to define some \
+criteria, so, this way, only one iteration can be done on the entire string. If the size does not match or any invalid \
+character is found, the iteration does not happen or stops immediatelly.
 
 ## Usage
 
