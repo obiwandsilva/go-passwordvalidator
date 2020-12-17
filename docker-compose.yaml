@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  password-validator:
+    build: .
+    image: wandsilva/passwordvalidator:1.0.0
+    ports:
+      - "7000:7000"
+    environment:
+      PV_PORT: 7000
+      PV_READ_TIMEOUT_SEG: 1000
+      PV_WRITE_TIMEOUT_SEG: 1000
+      PV_MIN_PASSWORD_SIZE: 9
+      PV_MAX_PASSWORD_SIZE: 32
+      GIN_MODE: release

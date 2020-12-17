@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/caarlos0/env/v6"
-	"github.com/obiwandsilva/passwordvalidator/appplication"
-	"github.com/obiwandsilva/passwordvalidator/appplication/config"
-	"github.com/obiwandsilva/passwordvalidator/appplication/web/http/controllers"
+	"github.com/obiwandsilva/passwordvalidator/application"
+	"github.com/obiwandsilva/passwordvalidator/application/config"
+	"github.com/obiwandsilva/passwordvalidator/application/web/http/controllers"
 	"github.com/obiwandsilva/passwordvalidator/domain/services"
 	"log"
 )
@@ -17,10 +17,8 @@ func main() {
 
 	passwordValidatorService := services.NewPasswordValidator(envConfig)
 	passwordValidatorController := controllers.NewPasswordValidatorController(passwordValidatorService)
-	passwordValidatorApplication := appplication.PasswordValidator{
-		EnvConfig:                   envConfig,
-		PasswordValidatorController: passwordValidatorController,
-	}
+	passwordValidatorApplication := application.NewPasswordValidator(envConfig, passwordValidatorController)
 
+	log.Printf("Running Server on port %s...", envConfig.ServerPort)
 	passwordValidatorApplication.Start()
 }

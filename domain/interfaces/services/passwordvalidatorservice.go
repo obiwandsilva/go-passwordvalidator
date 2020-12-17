@@ -1,5 +1,7 @@
 package services
 
+import "github.com/obiwandsilva/passwordvalidator/domain/entities"
+
 type PasswordValidatorService interface {
-	IsValid(password string) (bool, []string)
+	IsValid(password string) entities.Validation
 }

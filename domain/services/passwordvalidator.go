@@ -2,7 +2,8 @@ package services
 
 import (
 	"fmt"
-	"github.com/obiwandsilva/passwordvalidator/appplication/config"
+	"github.com/obiwandsilva/passwordvalidator/application/config"
+	"github.com/obiwandsilva/passwordvalidator/domain/entities"
 )
 
 type PasswordValidator struct {
@@ -15,14 +16,20 @@ func NewPasswordValidator(EnvironmentConfig config.EnvironmentConfig) *PasswordV
 	}
 }
 
-func (pvs *PasswordValidator) IsValid(password string) (bool, []string) {
+func (pvs *PasswordValidator) IsValid(password string) entities.Validation {
 	errors := pvs.validatePassword(password)
 
 	if len(errors) > 0 {
-		return false, errors
+		return entities.Validation{
+			IsValid: false,
+			Errors:  errors,
+		}
 	}
 
-	return true, nil
+	return entities.Validation{
+		IsValid: true,
+		Errors:  nil,
+	}
 }
 
 func (pvs *PasswordValidator) validatePassword(password string) []string {
