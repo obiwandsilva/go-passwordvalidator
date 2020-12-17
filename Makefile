@@ -18,3 +18,6 @@ test/integration:
 	(go test -v -race ./it/... && docker-compose down) || (docker-compose down && exit 1)
 
 test/all: test/unit test/integration
+
+run:
+	docker-compose up --build
