@@ -5,11 +5,11 @@ The service was designed on a layer oriented architecture with influences on the
 
 It consist basically on some very well defined layers:
 
-- Application
+- **Application**
 -- Holds the application configuration (e.g. env vars) and its bootstrap (servers, queue consumers, etc)
-- Domain
+- **Domain**
 -- Holds everything related to business logic, such entities and services
-- Resources
+- **Resources**
 -- Consists on everything related to communication with external resources, such APIs, Repositories, etc. This service does not need this layer, so it's not defined.
 
 In a more robust scenario, all layers should make heavy use of interfaces, but given the little scope of this service, only the business layer (domain/services) is using an interface in order to be abstracted and consequently decoupled.
