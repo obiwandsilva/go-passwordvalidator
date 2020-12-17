@@ -50,7 +50,7 @@ func (pvs *PasswordValidator) validatePassword(password string) []string {
 		return errors
 	}
 
-	for rule, _ := range missingCharsRules {
+	for rule := range missingCharsRules {
 		switch rule {
 		case RuleOneDigit:
 			errors = append(errors, "should have at least one digit")
@@ -131,7 +131,7 @@ func validateSpecialCharacter(char rune) bool {
 }
 
 func copyRuleMap(source map[Rule]struct{}) map[Rule]struct{} {
-	dest := make(map[Rule]struct{}, 0)
+	dest := make(map[Rule]struct{})
 
 	for k, v := range source {
 		dest[k] = v

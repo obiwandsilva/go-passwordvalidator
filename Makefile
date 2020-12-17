@@ -1,10 +1,14 @@
 .PHONY: test/unity test/integration test/all
 
-lint:
-	go run github.com/golangci/golangci-lint/cmd/golangci-lint --timeout 10m
+GOIMPORTS ?= golang.org/x/tools/cmd/goimports
+GOLINT ?= github.com/golangci/golangci-lint/cmd/golangci-lint
+SOURCES := $(shell go run $(GOIMPORTS) -l **/**.go | xargs)
 
 goimports:
-	go run golang.org/x/tools/cmd/goimports -w ./...
+	go run $(GOIMPORTS) -w $(SOURCES)
+
+lint:
+	go run $(GOLINT) run
 
 test/unit:
 	go test -v -race ./domain/...

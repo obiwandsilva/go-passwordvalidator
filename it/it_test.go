@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/obiwandsilva/passwordvalidator/domain/entities"
-	"github.com/stretchr/testify/require"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/obiwandsilva/passwordvalidator/domain/entities"
+	"github.com/stretchr/testify/require"
 )
 
 // Some values used in the tests are defined on environment variables on docker-compose file

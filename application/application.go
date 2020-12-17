@@ -1,16 +1,17 @@
 package application
 
 import (
+	"time"
+
 	"github.com/gin-gonic/gin"
 	"github.com/obiwandsilva/passwordvalidator/application/config"
 	"github.com/obiwandsilva/passwordvalidator/application/web"
 	"github.com/obiwandsilva/passwordvalidator/application/web/http/controllers"
 	"github.com/obiwandsilva/passwordvalidator/application/web/http/routes"
-	"time"
 )
 
 type PasswordValidator struct {
-	EnvConfig config.EnvironmentConfig
+	EnvConfig                   config.EnvironmentConfig
 	PasswordValidatorController *controllers.PasswordValidatorController
 }
 
@@ -19,7 +20,7 @@ func NewPasswordValidator(
 	passwordValidatorController *controllers.PasswordValidatorController,
 ) *PasswordValidator {
 	return &PasswordValidator{
-		EnvConfig: envConfig,
+		EnvConfig:                   envConfig,
 		PasswordValidatorController: passwordValidatorController,
 	}
 }
@@ -31,8 +32,8 @@ func (pw *PasswordValidator) Start() {
 
 	web.NewServer(
 		pw.EnvConfig.ServerPort,
-		time.Second * time.Duration(pw.EnvConfig.ServerReadTimeout),
-		time.Second * time.Duration(pw.EnvConfig.ServerWriteTimeout),
+		time.Second*time.Duration(pw.EnvConfig.ServerReadTimeout),
+		time.Second*time.Duration(pw.EnvConfig.ServerWriteTimeout),
 		router,
 	).Start()
 }

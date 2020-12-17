@@ -1,6 +1,6 @@
 package entities
 
 type Validation struct {
-	IsValid bool     `json"isValid"`
+	IsValid bool     `json:"isValid"`
 	Errors  []string `json:"errors"`
 }
