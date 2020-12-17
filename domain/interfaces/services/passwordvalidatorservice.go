@@ -1,5 +1,5 @@
 package services
 
 type PasswordValidatorService interface {
-	IsValid(password string) bool
+	IsValid(password string) (bool, []string)
 }

@@ -15,7 +15,7 @@ func main() {
 		log.Panicf("error when loading environment configuration: %v", err)
 	}
 
-	passwordValidatorService := services.NewPasswordValidator()
+	passwordValidatorService := services.NewPasswordValidator(envConfig)
 	passwordValidatorController := controllers.NewPasswordValidatorController(passwordValidatorService)
 	passwordValidatorApplication := appplication.PasswordValidator{
 		EnvConfig:                   envConfig,
