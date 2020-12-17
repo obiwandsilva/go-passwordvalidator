@@ -55,6 +55,7 @@ Response body example
   ]
 }
 ```
+Status Code: the API will always return `200` for succeeded requests, even for invalid passwords. But it can also return `400` for bad request.
 
 ## Testing
 
