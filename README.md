@@ -1,13 +1,13 @@
 # go-passwordvalidator
 
-The service was designed on a layer oriented architecture with influences from the\
+The service was designed on a layer oriented architecture with influences from the \
 [Ports and Adapters of Hexagonal Architecture](https://dev.to/jofisaes/hexagonal-architecture-ports-and-adapters-1h4m).
 
 It consist basically on some very well defined layers:
 
 - **Application** holds the application configuration (e.g. env vars) and its bootstrap (servers, queue consumers, etc).
 - **Domain** holds everything related to business logic, such entities and services.
-- **Resources** consists on everything related to communication with external resources, such APIs, Repositories, etc.\
+- **Resources** consists on everything related to communication with external resources, such APIs, Repositories, etc. \
 This service does not need this layer, so it's not defined.
 
 In a more robust scenario, all layers should make heavy use of interfaces, but given the little scope of this service, \
@@ -43,7 +43,8 @@ Or with `make`, just run
 make run
 ```
 
-**ATTENTION:** if you want to edit any configuration available (such as port, timeouts and password sizes), please, do it in the `docker-compose` file.
+**ATTENTION:** if you want to edit any configuration available (such as port, timeouts and password sizes), please, \
+do it in the `docker-compose` file.
 
 The server will expose an HTTP API at port 7000 on `localhost`.
 
