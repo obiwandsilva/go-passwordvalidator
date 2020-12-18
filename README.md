@@ -1,6 +1,6 @@
 # go-passwordvalidator
 
-The service was designed on a layer oriented architecture with influences on the\
+The service was designed on a layer oriented architecture with influences from the\
 [Ports and Adapters of Hexagonal Architecture](https://dev.to/jofisaes/hexagonal-architecture-ports-and-adapters-1h4m).
 
 It consist basically on some very well defined layers:
